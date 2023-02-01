@@ -13,8 +13,9 @@
 
 
 ### the Data in db.json is going to have this syntaxs:
+```js
 {
-    "articles:[
+    "articles":[
       {
 
             "id": "1",
@@ -28,3 +29,4 @@
         }
     ]
 }
+```
