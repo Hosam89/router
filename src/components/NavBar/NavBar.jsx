@@ -21,7 +21,7 @@ const NavBar = () => {
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav d-flex">
-          <Nav className="ms-auto d-felx gap-5">
+          <Nav className="ms-auto  gap-5">
             <Nav.Link>
               <NavLink to="/" className="text-light navLink">
                 Home
@@ -30,7 +30,7 @@ const NavBar = () => {
 
             <Nav.Link>
               <NavLink to="/about" className="text-light">
-                About{" "}
+                About{""}
               </NavLink>
             </Nav.Link>
 

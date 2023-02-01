@@ -1,3 +1,24 @@
 // *{
 //     outline: 1px solid green;
 // }
+.dia{
+    position: relative;
+    isolation: isolate;
+    &::after{
+        content: '';
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        transform: skewY(-2deg);
+        background-image: linear-gradient(
+        45deg,
+        #12c2e9,
+        #c451ed,
+        #f6df59
+    );
+    }
+}
+//Form from Contact Page
+form{
+    margin-inline: auto;
+}

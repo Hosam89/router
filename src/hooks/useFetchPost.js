@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 
-export const useFetch = (url, otherOptions) => {
+export const useFetchPost = (url, otherOptions) => {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const [errors, setErrors] = useState(null);
   const options = useRef(otherOptions).current;
-  console.log(options);
+  console.log(data);
   useEffect(() => {
     const controller = new AbortController();
     const fetchData = async () => {
