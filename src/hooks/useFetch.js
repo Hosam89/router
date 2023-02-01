@@ -10,7 +10,7 @@ export const useFetch = (url, otherOptions) => {
     const controller = new AbortController();
     const fetchData = async () => {
       setIsPending(true);
-      console.log(options);
+
       try {
         const res = await fetch(url, { signal: controller.signal });
         if (!res.ok) {
