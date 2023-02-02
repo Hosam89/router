@@ -41,7 +41,6 @@ const Contact = () => {
           <Form.Label>What should we Chnage:</Form.Label>
           <Form.Control
             as="textarea"
-            resize="none"
             placeholder="Leave a comment here"
             style={{ height: "100px" }}
             onChange={(e) =>

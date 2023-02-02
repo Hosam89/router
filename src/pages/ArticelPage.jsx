@@ -79,7 +79,7 @@ const ArticelPage = () => {
             </Form.Group>
             <Form.Group>
               <Form.Control
-                type="textarea"
+                as="textarea"
                 style={{ height: "300px" }}
                 onChange={(e) => setbodyEdit(e.target.value)}
               ></Form.Control>

@@ -10,7 +10,7 @@ const HomePage = () => {
       <h1 className="text-center fs-1">Articles</h1>
       {loading && <h3>Loading Please Wait</h3>}
       {errors && <h3>{errors.message}</h3>}
-      <div className="d-flex flex-wrap  gap-4 justify-content-center">
+      <div className="d-flex flex-wrap  gap-4 justify-content-center p-4">
         {articles?.map((article) => (
           <Article
             title={article.title}

@@ -30,7 +30,7 @@ const NavBar = () => {
 
             <Nav.Link>
               <NavLink to="/about" className="text-light">
-                About{""}
+                Add new Article{""}
               </NavLink>
             </Nav.Link>
 
