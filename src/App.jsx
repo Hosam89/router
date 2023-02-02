@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import NavBar from "./components/NavBar/NavBar";
 import { Home, About, Contact, Articel } from "./pages/index";
 import "./bootstrap.min.css";
@@ -9,15 +10,15 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <NavBar />
-        <Switch>
-          <Route exact path="/" component={Home} />
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-          <Route path="/about" component={About} />
+          <Route path="/about" element={<About />} />
 
-          <Route path="/articles/:id" component={Articel} />
+          <Route path="/articles/:id" element={<Articel />} />
 
-          <Route path="/contact" component={Contact} />
-        </Switch>
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );

@@ -1,60 +1,25 @@
 import { Button, Form, Container } from "react-bootstrap";
-// import { useFetch } from "../hooks/useFetch";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const [email, setEmail] = useState("");
   const [comment, setComment] = useState("");
   const complainsUrl = "http://localhost:4000/comments";
-  const [send, setSend] = useState(false);
-  const [error, setError] = useState(null);
-  const [redirect, setRedirect] = useState("/");
+  const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
+  const [user, setUser] = useState(null);
+  const { postData, data, error } = useFetch(complainsUrl, "POST");
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-
-    try {
-      const response = await fetch(complainsUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userEmail: email,
-          userComment: comment,
-        }),
-      });
-      if (!response.ok) {
-        throw new Error(`${response.status}: ${response.statusText}`);
-      }
-      const data = await response.json();
-      setSend(true);
-      setError(null);
-    } catch (e) {
-      setError(e);
-      setSend(false);
-    }
+    postData({
+      userEmail: email,
+      userComments: comment,
+    });
   };
 
-  if (send) {
-    setRedirect("/contact");
-  }
-  // const { data: comments } = useFetch(complainsUrl, {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({
-  //     userEmail: email,
-  //     userComment: comment,
-  //   }),
-  // });
-  // console.log(comments);
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log(comments);
-  // };
   return (
     <Container className="pt-5 ">
       <Form className="mt-4 w-50 " onSubmit={handleSubmit}>
@@ -85,7 +50,15 @@ const Contact = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button
+          variant="primary"
+          type="submit"
+          onClick={() =>
+            setTimeout(() => {
+              navigate("/");
+            }, 2000)
+          }
+        >
           Submit
         </Button>
       </Form>
